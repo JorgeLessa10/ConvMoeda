@@ -48,8 +48,7 @@ export class ListarSimbolosComponent implements OnInit, AfterViewInit {
   }
 
   carregarMoedas(){
-    this.listarSimbolosService.listarSimbolos().subscribe(value => {
-
+    this.listarSimbolosService.getSymbolCurrency().subscribe(value => {
       for (let symbol in value.symbols){
         let moeda: CurrencyConverter = new CurrencyConverter();
         moeda.code = value.symbols[symbol].code;

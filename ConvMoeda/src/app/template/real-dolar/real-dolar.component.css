@@ -1,0 +1,17 @@
+.converter{
+    width: 50em;
+    margin-top: 2em;
+}
+
+.input-converter{
+    margin-top: 1em;
+}
+
+.h1{
+    font-weight: bold;
+    font-family: fantasy;
+}
+
+.clear{
+    margin-left: 2em;
+}

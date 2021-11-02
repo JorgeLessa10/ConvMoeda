@@ -1,1 +1,14 @@
-<p>real-dolar works!</p>
+<div class="container converter">
+    <label>Entre com o valor em Real a ser convetido em dolar</label>
+    <input type="text" class="form-control" placeholder="Entre com o valor em Real a ser convetido em dolar" 
+        aria-label="" (change)="updateInputAmount($event)" mask="separator.2">
+    <div class="text-center input-converter">
+        <button type="submit" class="btn btn-primary mb-3" (click)="convert()">Converter</button>
+    </div>
+    
+
+    <div class="text-center input-converter" *ngIf="this.resultConverter.result">
+        <h1 class="h1"> O valor convertido é: ${{this.resultConverter.result}} </h1>
+                <button type="submit" class="btn btn-primary mb-3 clear" (click)="clear()">Limpar</button>
+    </div>
+</div>

@@ -9,8 +9,14 @@ import { HttpClient } from '@angular/common/http';
 export class ListarSimbolosService {
 
   constructor(private http: HttpClient) { }
+  
+  API_URI = 'https://api.exchangerate.host/';
 
-  listarSimbolos(): Observable<any>{
-    return this.http.get("https://api.exchangerate.host/symbols");
+  getSymbolCurrency(): Observable<any>{
+    return this.http.get(this.API_URI+'symbols');
+  }
+
+  getConvertCurrency(fromCurrency: String, toCurrency: String, amount: number): Observable<any> {
+    return this.http.get(this.API_URI + "convert?from=" + fromCurrency + "&to=" + toCurrency + "&amount=" + amount);
   }
 }

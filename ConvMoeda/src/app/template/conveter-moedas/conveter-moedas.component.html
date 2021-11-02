@@ -1,1 +1,25 @@
-<p>conveter-moedas works!</p>
+<div class="container converter">
+    <div class="input-group mb-3 input-converter">
+        <select class="form-select" (change)="updateSelectedFromCurrency($event)">
+            <option disabled selected hidden>De</option>
+            <option *ngFor="let currency of this.currencys" [value]="currency.code">{{currency.description}}
+            </option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <select class="form-select" (change)="updateSelectedToCurrency($event)">
+            <option disabled selected hidden>Para</option>
+            <option *ngFor="let currency of this.currencys" [value]="currency.code">{{currency.description}}
+            </option>
+        </select>
+    </div>
+    <input type="text" class="form-control" placeholder="Insira o valor a ser convertido" 
+        aria-label="" (change)="updateInputAmount($event)" mask="separator.2">
+    <div class="text-center input-converter">
+        <button type="submit" class="btn btn-primary mb-3" (click)="convert()">Converter</button>
+    </div>
+
+    <div class="text-center input-converter">
+        <h1 class="h1"> O valor convertido é: {{this.resultConverter.result}} </h1>
+    </div>
+</div>
